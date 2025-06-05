@@ -1,0 +1,52 @@
+.about-container {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000; /* pure black background */
+  color: #fff; /* white text */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  background-color: rgb(212, 163, 114, 0.15); /* very light cream transparent */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(212, 163, 114, 0.5);
+  max-width: 700px;
+  color: #fff;
+}
+
+.about-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: rgb(212, 163, 114); /* light cream */
+}
+
+.about-content h3 {
+  margin-top: 30px;
+  color: rgb(212, 163, 114); /* light cream */
+}
+
+.about-content p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #eee; /* slightly off-white for better readability */
+}
+
+.about-content ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.about-content li {
+  margin-bottom: 10px;
+  color: #fff; /* keep list white */
+}
+
+.about-content strong {
+  color: rgb(212, 163, 114);
+}

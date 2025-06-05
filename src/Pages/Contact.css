@@ -1,0 +1,137 @@
+/* Container & bg */
+.contact-wrapper {
+  max-width: 450px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgb(212 163 114 / 0.3);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-wrapper h1 {
+  text-align: center;
+  color: rgb(212, 163, 114);
+  margin-bottom: 30px;
+  letter-spacing: 1.2px;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Floating labels input group */
+.input-group {
+  position: relative;
+  width: 95%;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 14px 15px;
+  font-size: 1rem;
+  border: 2px solid rgb(212, 163, 114);
+  border-radius: 8px;
+  background: transparent;
+  color: #333;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.input-group textarea {
+  min-height: 100px;
+}
+
+/* Label styling */
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: rgb(212, 163, 114);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  background: #fff;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+/* Move label up on focus or when input has value */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 0.8rem;
+  color: rgb(150, 110, 60);
+}
+
+/* Input focus border color */
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: rgb(150, 110, 60);
+}
+
+/* Submit button */
+.btn-submit {
+  padding: 15px;
+  background-color: rgb(212, 163, 114);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgb(212 163 114 / 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: rgb(180, 130, 70);
+  box-shadow: 0 8px 25px rgb(180 130 70 / 0.7);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .contact-wrapper {
+    background: #111;
+    color: #eee;
+    box-shadow: 0 10px 30px rgb(212 163 114 / 0.5);
+  }
+
+  .input-group input,
+  .input-group textarea {
+    border-color: rgb(212, 163, 114);
+    color: #eee;
+    background: #222;
+  }
+
+  .input-group label {
+    background: #111;
+    color: rgb(212, 163, 114);
+  }
+
+  .input-group input:focus,
+  .input-group textarea:focus {
+    border-color: rgb(180, 130, 70);
+  }
+
+  .btn-submit {
+    background-color: rgb(212, 163, 114);
+    color: #111;
+    box-shadow: 0 5px 15px rgb(212 163 114 / 0.7);
+  }
+
+  .btn-submit:hover {
+    background-color: rgb(180, 130, 70);
+    box-shadow: 0 8px 25px rgb(180 130 70 / 0.9);
+  }
+}

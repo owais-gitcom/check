@@ -1,0 +1,62 @@
+.services-container {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000; /* black background */
+  color: #fff; /* white text */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services-content {
+  background-color: rgb(212, 163, 114, 0.15); /* light cream transparent background */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(212, 163, 114, 0.5);
+  max-width: 700px;
+  color: #fff;
+}
+
+.services-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: rgb(212, 163, 114);
+}
+
+.services-content p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #eee;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.service-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(212, 163, 114, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgb(212, 163, 114);
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+  color: rgb(212, 163, 114);
+}
+
+.service-card p {
+  color: #fff;
+}

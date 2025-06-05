@@ -1,0 +1,322 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #000000 0%, #1a1a1a 100%);
+  padding: 1rem 2rem;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f4f4f4;
+  letter-spacing: 1px;
+  flex: 1;
+}
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex: 2;
+}
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: #ccd6f6;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  padding: 4px 0;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(212, 163, 114);
+  transition: width 0.3s ease-in-out;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: rgb(212, 163, 114);
+}
+
+/* Right Section (Icons) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+.icon {
+  font-size: 1.5rem;
+  color: #ccd6f6;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.icon:hover {
+  color: rgb(212, 163, 114);
+}
+
+/* Hamburger Icon */
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: #ccd6f6;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1a1a1a;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-right {
+    gap: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  background-color: #f0f0f0;
+  color: #000;
+}
+body.light-mode .navbar {
+  background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%);
+  color: #000;
+}
+body.light-mode .logo {
+  color: #000;
+}
+body.light-mode .nav-links a {
+  color: #222;
+}
+body.light-mode .nav-links a:hover,
+body.light-mode .nav-links a.active {
+  color: rgb(212, 163, 114);
+}
+body.light-mode .icon {
+  color: #333;
+}
+
+/* User Menu Wrapper */
+.user-menu-wrapper {
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* User Dropdown */
+.user-dropdown {
+  position: absolute;
+  top: 2.8rem;
+  right: 0;
+  background: linear-gradient(145deg, #1b1b1b, #292929);
+  border-radius: 16px;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(212, 163, 114, 0.8);
+  backdrop-filter: blur(12px);
+  animation: dropdownFadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  min-width: 160px;
+  user-select: none;
+  border: 1px solid rgba(212, 163, 114, 0.6);
+}
+
+/* User Dropdown Buttons */
+.user-dropdown button {
+  color: #f0e6d2;
+  text-decoration: none;
+  padding: 0.6rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 10px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  border-bottom: 1px solid rgba(212, 163, 114, 0.4);
+  letter-spacing: 0.03em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeSlideIn 0.3s ease forwards;
+  animation-fill-mode: forwards;
+}
+.user-dropdown button:first-child {
+  border-bottom: none;
+  animation-delay: 0.05s;
+}
+.user-dropdown button:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.user-dropdown button:nth-child(3) {
+  animation-delay: 0.25s;
+}
+.user-dropdown button:hover {
+  transform: scale(1.08);
+  letter-spacing: 0.06em;
+  background-color: rgba(212, 163, 114, 0.7);
+  /* Uncomment if you want the shadow and bg effect on hover */
+  /*
+  background-color: rgb(212, 163, 114);
+  color: #1a1a1a;
+  box-shadow:
+    0 0 12px rgb(212, 163, 114),
+    0 4px 12px rgba(212, 163, 114, 0.5);
+  cursor: pointer;
+  */
+}
+
+/* User Dropdown Links */
+.user-dropdown a {
+  color: #f0e6d2;
+  text-decoration: none;
+  padding: 0.6rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 10px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  border-bottom: 1px solid rgba(212, 163, 114, 0.4);
+  letter-spacing: 0.03em;
+}
+.user-dropdown a:last-child {
+  border-bottom: none;
+}
+.user-dropdown a:hover {
+  transform: scale(1.08);
+  letter-spacing: 0.06em;
+  /*
+  background-color: rgb(212, 163, 114);
+  color: #1a1a1a;
+  box-shadow:
+    0 0 12px rgb(212, 163, 114),
+    0 4px 12px rgba(212, 163, 114, 0.5);
+  cursor: pointer;
+  */
+}
+
+/* Light Mode Overrides for User Dropdown */
+body.light-mode .user-dropdown {
+  background: linear-gradient(145deg, #fffef9, #f0eade);
+  border: 1px solid rgba(212, 163, 114, 0.7);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    0 0 12px rgba(212, 163, 114, 0.5);
+  color: #4a4a4a;
+}
+body.light-mode .user-dropdown a {
+  color: #6e5d3c;
+  border-bottom: 1px solid rgba(212, 163, 114, 0.5);
+}
+body.light-mode .user-dropdown a:last-child {
+  border-bottom: none;
+}
+body.light-mode .user-dropdown a:hover {
+  background-color: rgb(212, 163, 114);
+  color: #1a1a1a;
+  box-shadow:
+    0 0 10px rgb(212, 163, 114),
+    0 4px 10px rgba(212, 163, 114, 0.6);
+}
+body.light-mode .user-dropdown button {
+  color: #6e5d3c;
+  border-bottom: 1px solid rgba(212, 163, 114, 0.7);
+}
+body.light-mode .user-dropdown button:last-child {
+  border-bottom: none;
+}
+body.light-mode .user-dropdown button:hover {
+  background-color: rgba(212, 163, 114, 0.7);
+  color: #1a1a1a;
+  box-shadow:
+    0 0 10px rgb(212, 163, 114),
+    0 4px 10px rgba(212, 163, 114, 0.6);
+}
+
+/* Dropdown fade-in animation */
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade Slide In Animation */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
